@@ -3,6 +3,7 @@
         <div class="alert alert-primary text-center row" role="alert">
             <div class="col-12">
                 <h3>Asignaciones</h3>
+
             </div>
         </div>
     </div>
@@ -12,7 +13,7 @@
             <div class="text-center col-12">
                 <h1>Asignaciones Actuales</h1>
             </div>
-            <div class="col-10 container" style="padding-bottom: 30px;">
+            <div class="col-10 container" style="padding-bottom: 15px;">
                 <table class="table table-bordered">
                     <thead>
                         <tr class="table-primary">
@@ -23,10 +24,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>algo</td>
-                            <td>algo</td>
-                            <td>algo</td>
+                        <tr *ngFor="let asignacion of asignaciones">
+                            <td>{{asignacion.id}}</td>
+                            <td>{{asignacion.nombre}}</td>
+                            <td>{{asignacion.nombre_curso}}</td>
                             <td>
                                 <div class="row ">
                                     <div class="col-4">
@@ -42,13 +43,15 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="col-12 container" style="padding-bottom: 30px;">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" href="#createModal"><i class="fas fa-user-plus"></i></button>
             </div>
         </div>
     </div>
-    <div class="col-8 container">
-        <div class="row"style="padding-bottom: 30px;">
-            <div class="col-2">
+    <div class="col-10 container">
+        <div class="row" style="padding-bottom: 30px;">
+            <div class="col-4">
                 <span>Filtrar por:</span>
             </div>
             <div class="col-6">
@@ -61,7 +64,7 @@
         </div>
     </div>
 
-    <div class="col-10 container" >
+    <div class="col-10 container">
         <table class="table table-bordered">
             <thead>
                 <tr class="table-primary">
@@ -72,13 +75,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let item of asignaciones">
                     <td>algo</td>
                     <td>algo</td>
                     <td>algo</td>
                     <td>
                         <div class="row ">
-                            <div class="col-4">  
+                            <div class="col-4">
                                 <i class="fas fa-edit" type="button" data-bs-toggle="modal" href="#editModal"></i>
                             </div>
                             <div class="col-4">
@@ -89,6 +92,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="col-12 container" style="padding-top: 50px;">
+        <button class="btn btn-primary" (click)="redirecTo('/home/homeAdmin')"><i class="fas fa-home"type="button"></i>__Panel Admin</button>
     </div>
 
     <!-- //editModal -->

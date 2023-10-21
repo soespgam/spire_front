@@ -12,7 +12,7 @@
             <div class="text-center col-12">
                 <h1>Cursos Actuales</h1>
             </div>
-            <div class="col-10 container" style="padding-bottom: 30px;">
+            <div class="col-10 container" style="padding-bottom: 15px;">
                 <table class="table table-bordered">
                     <thead>
                         <tr class="table-primary">
@@ -23,10 +23,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>algo</td>
-                            <td>algo</td>
-                            <td>algo</td>
+                        <tr *ngFor="let item of cursos">
+                            <td>{{item.id}}</td>
+                            <td>{{item.nombre_curso}}</td>
+                            <td>{{item.intensidad_horaria}}</td>
                             <td>
                                 <div class="row ">
                                     <div class="col-4">
@@ -42,7 +42,10 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" href="#createModal"><i class="fas fa-user-plus"></i></button>
+            </div>
+            <div class="col-12 container" style="padding-bottom: 30px;">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" href="#createModal"><i
+                        class="fas fa-user-plus"></i></button>
             </div>
         </div>
     </div>
@@ -51,7 +54,7 @@
             <div class="col-2">
                 <span>Buscar por:</span>
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>selecciona una opcion</option>
                     <option value="1">Nombre</option>
@@ -61,7 +64,7 @@
             <div class="col-6">
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">buscar curso</button>
+                    <button class="btn btn-outline-success" type="submit">buscar</button>
                 </form>
             </div>
         </div>
@@ -97,6 +100,9 @@
             </tbody>
         </table>
     </div>
+    <div class="col-12 container" style="padding-top: 50px;">
+        <button class="btn btn-primary" (click)="redirecTo('/home/homeAdmin')"><i class="fas fa-home"type="button"></i>__Panel Admin</button>
+    </div>
 
     <!-- //editModal -->
     <div class="modal fade" id="editModal" aria-hidden="true" tabindex="-1">
@@ -117,8 +123,8 @@
         </div>
     </div>
 
-      <!-- //createModal -->
-      <div class="modal fade" id="createModal" aria-hidden="true" tabindex="-1">
+    <!-- //createModal -->
+    <div class="modal fade" id="createModal" aria-hidden="true" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">

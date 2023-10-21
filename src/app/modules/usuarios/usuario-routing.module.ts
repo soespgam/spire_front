@@ -7,29 +7,20 @@ import { AsignacionesComponent } from '../home/pages/home-page/components/asigna
 
 const routes: Routes = [
   {
+    path: 'login',
+    component:LoginPageComponent,
+  },
+  {
+    path: 'homeAlumn',
+    component:HomeAlumnComponent,
+  },
+  {
+    path: 'homeAdmin',
+    component:HomePageComponent,
+  },
+  {
     path: '',
-    children: [
-      {
-        path: 'login',
-        component:LoginPageComponent,
-      },
-      {
-        path: 'homeAlumn',
-        component:HomeAlumnComponent,
-      },
-      {
-        path: 'homeAdmin',
-        component:HomePageComponent,
-      },
-      {
-        path: 'test',
-        component:AsignacionesComponent,
-      },
-      {
-        path: '**',
-        redirectTo: 'login'
-      }
-    ]
+    component:LoginPageComponent,
   }
 ];
 

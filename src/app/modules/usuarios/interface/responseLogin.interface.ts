@@ -7,3 +7,10 @@ export interface respLogin {
     status: boolean;
     
 }
+
+
+export interface ResToken{
+    status: boolean;
+    message: string;
+    ascces_token:string
+}

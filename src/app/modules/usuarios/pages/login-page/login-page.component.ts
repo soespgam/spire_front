@@ -38,7 +38,7 @@ export class LoginPageComponent {
           next:(res)=>{
             console.log("desdelogin",res);
             sessionStorage.setItem("usuariok",JSON.stringify(res))
-            this.profile();
+            this.profile(res.ascces_token);
           },
           error:(error:any)=>{
             console.log(error);
@@ -53,9 +53,10 @@ export class LoginPageComponent {
     }
   }
 
-  public  profile():void{
-    this.loginService.get_perfil().subscribe({
+  public  profile(token:string):void{
+    this.loginService.get_perfil(token).subscribe({
       next:(res)=>{
+        localStorage.setItem("user_auth",JSON.stringify(res.data));
         let rol= res.data.rol;
         console.log("rol actual",rol);
         if(rol == "ADMIN"){

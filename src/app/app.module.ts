@@ -10,10 +10,11 @@ import { HomeRoutingModule } from './modules/home/home-routing.module';
 import { CursosComponent } from './modules/home/pages/home-page/components/cursos/cursos.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    CursosComponent
+    CursosComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,9 +26,7 @@ import { CursosComponent } from './modules/home/pages/home-page/components/curso
     HomeModule,
     
 
-  ], exports:[
-    CursosComponent
-  ],
+  ], exports:[  ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]

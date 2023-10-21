@@ -5,10 +5,15 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('../app/modules/usuarios/usuario.module').then(m => m.UsuarioModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('../app/modules/home/home.module').then(m => m.HomeModule)
   }
   ,{
-    path: '**',
-    redirectTo: '/home'
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
   }
 ];
 
