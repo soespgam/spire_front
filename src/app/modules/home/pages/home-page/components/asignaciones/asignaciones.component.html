@@ -1,0 +1,132 @@
+<div class="row" style="padding: 15px;">
+    <div class="col-12">
+        <div class="alert alert-primary text-center row" role="alert">
+            <div class="col-12">
+                <h3>Asignaciones</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="row">
+            <div class="text-center col-12">
+                <h1>Asignaciones Actuales</h1>
+            </div>
+            <div class="col-10 container" style="padding-bottom: 30px;">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">id Asignacion</th>
+                            <th scope="col">Alumno</th>
+                            <th scope="col">Curso</th>
+                            <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>algo</td>
+                            <td>algo</td>
+                            <td>algo</td>
+                            <td>
+                                <div class="row ">
+                                    <div class="col-4">
+
+                                        <i class="fas fa-edit" type="button" data-bs-toggle="modal"
+                                            href="#editModal"></i>
+                                    </div>
+                                    <div class="col-4">
+                                        <i class="fas fa-trash-alt" type="button"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" href="#createModal"><i class="fas fa-user-plus"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="col-8 container">
+        <div class="row"style="padding-bottom: 30px;">
+            <div class="col-2">
+                <span>Filtrar por:</span>
+            </div>
+            <div class="col-6">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>selecciona una opcion</option>
+                    <option value="1">Alumno</option>
+                    <option value="2">Curso</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-10 container" >
+        <table class="table table-bordered">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">id Asignacion</th>
+                    <th scope="col">Alumno</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>algo</td>
+                    <td>algo</td>
+                    <td>algo</td>
+                    <td>
+                        <div class="row ">
+                            <div class="col-4">  
+                                <i class="fas fa-edit" type="button" data-bs-toggle="modal" href="#editModal"></i>
+                            </div>
+                            <div class="col-4">
+                                <i class="fas fa-trash-alt" type="button"></i>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- //editModal -->
+    <div class="modal fade" id="editModal" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Editar Asinacion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Show a second modal and hide this one with the button below.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Open second modal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- //createModal -->
+    <div class="modal fade" id="createModal" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Crear Asignacion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Show a second modal and hide this one with the button below.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Open second modal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
