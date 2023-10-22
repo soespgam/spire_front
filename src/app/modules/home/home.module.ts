@@ -14,6 +14,7 @@ import { AsignacionesService } from './service/asignaciones/asignaciones.service
 import { UsuariosComponent } from './pages/home-page/components/usuarios/usuarios.component';
 import { PerfilComponent } from './pages/home-page/components/perfil/perfil.component';
 import { AsignacionesComponent } from './pages/home-page/components/asignaciones/asignaciones.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AsignacionesComponent } from './pages/home-page/components/asignaciones
   imports: [
     CommonModule,
     HomeRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     AdminService,

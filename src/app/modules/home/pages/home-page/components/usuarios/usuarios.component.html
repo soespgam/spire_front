@@ -32,12 +32,10 @@
                             <td>
                                 <div class="row ">
                                     <div class="col-4">
-
-                                        <i class="fas fa-edit" type="button" data-bs-toggle="modal"
-                                            href="#editModal"></i>
+                                        <i class="fas fa-edit" type="button" data-bs-toggle="modal" href="#editModal" (click)="getUser(item.id)"></i>
                                     </div>
                                     <div class="col-4">
-                                        <i class="fas fa-trash-alt" type="button"></i>
+                                        <i class="fas fa-trash-alt" type="button" (click)="deleteUser(item.id)"></i>
                                     </div>
                                 </div>
                             </td>
@@ -46,7 +44,8 @@
                 </table>
             </div>
             <div class="col-12 container" style="padding-bottom: 30px;">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" href="#createModal"><i class="fas fa-user-plus"></i>__crear Usuario</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" href="#createModal"><i
+                        class="fas fa-user-plus"></i>__crear Usuario</button>
             </div>
         </div>
     </div>
@@ -103,7 +102,8 @@
         </table>
     </div>
     <div class="col-12 container" style="padding-top: 50px;">
-        <button class="btn btn-primary" (click)="redirecTo('/home/homeAdmin')"><i class="fas fa-home"type="button"></i>__Panel Admin</button>
+        <button class="btn btn-primary" (click)="redirecTo('/home/homeAdmin')"><i class="fas fa-home"
+                type="button"></i>__Panel Admin</button>
     </div>
 
     <!-- //editModal -->
@@ -115,42 +115,36 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form onsubmit="return false">
                         <div class="row">
-                            <div class="col-6 mb-3">
+                            <div class="col-6 mb-3" [formGroup]="usuarioValidate">
                                 <label class="form-label">Nombre Completo</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                <input type="text" formControlName="nombre" class="form-control" placeholder="{{editUsuario.nombre}}">
                             </div>
-                            <div class="col-6 mb-3">
+                            <div class="col-6 mb-3" [formGroup]="usuarioValidate">
                                 <label class="form-label">Telefono</label>
-                                <input type="number" class="form-control" id="exampleInputPassword1">
+                                <input type="number" formControlName="telefono" class="form-control" placeholder="{{editUsuario.telefono}}">
                             </div>
 
-                            <div class="col-6 mb-3">
+                            <div class="col-6 mb-3" [formGroup]="usuarioValidate">
                                 <label class="form-label">Correo Electronico</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                <input type="email" formControlName="correo" class="form-control" placeholder="{{editUsuario.correo}}">
                             </div>
-                            <div class="col-6 mb-3">
+                            <div class="col-6 mb-3" [formGroup]="usuarioValidate">
                                 <label class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <input formControlName="password" class="form-control" placeholder="{{editUsuario.password}}">
                             </div>
 
-                            <div class="col-6 mb-3">
+                            <div class="col-6 mb-3" [formGroup]="usuarioValidate">
                                 <label class="form-label">Rol</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>selecciona una opcion</option>
-                                    <option value="1">Admin</option>
-                                    <option value="2">Alumno</option>
+                                <select class="form-select" formControlName="rol" id="rol" [(ngModel)]="rol">
+                                    <option selected>{{editUsuario.rol}}</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Alumno">Alumno</option>
                                 </select>
                             </div>
-                            <div class="col-6 mb-3">
-                                <label class="form-label">intensidad Horaria</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
-                            </div>
                             <div class="col-12 container">
-                                <button type="submit" class="btn btn-primary">crear usuario</button>
+                                <button type="submit" class="btn btn-primary" (click)="updated_user()">Actualizar usuario</button>
                             </div>
                         </div>
                     </form>
@@ -160,8 +154,8 @@
     </div>
 
 
-      <!-- //createModal -->
-      <div class="modal fade" id="createModal" aria-hidden="true" tabindex="-1">
+    <!-- //createModal usuarioValidate -->
+    <div class="modal fade" id="createModal" aria-hidden="true" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -169,42 +163,37 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form onsubmit="return false">
                         <div class="row">
-                            <div class="col-6 mb-3">
+                            <div class="col-6 mb-3" [formGroup]="usuarioValidate">
                                 <label class="form-label">Nombre Completo</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                <input type="text" formControlName="nombre" class="form-control">
                             </div>
-                            <div class="col-6 mb-3">
+                            <div class="col-6 mb-3" [formGroup]="usuarioValidate">
                                 <label class="form-label">Telefono</label>
-                                <input type="number" class="form-control" id="exampleInputPassword1">
+                                <input type="number" formControlName="telefono" class="form-control">
                             </div>
 
-                            <div class="col-6 mb-3">
+                            <div class="col-6 mb-3" [formGroup]="usuarioValidate">
                                 <label class="form-label">Correo Electronico</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                <input type="email" formControlName="correo" class="form-control">
                             </div>
-                            <div class="col-6 mb-3">
+                            <div class="col-6 mb-3" [formGroup]="usuarioValidate">
                                 <label class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <input formControlName="password" class="form-control">
                             </div>
 
-                            <div class="col-6 mb-3">
+                            <div class="col-6 mb-3" [formGroup]="usuarioValidate">
                                 <label class="form-label">Rol</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" formControlName="rol" id="rol" [(ngModel)]="rol">
                                     <option selected>selecciona una opcion</option>
-                                    <option value="1">Admin</option>
-                                    <option value="2">Alumno</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Alumno">Alumno</option>
                                 </select>
                             </div>
-                            <div class="col-6 mb-3">
-                                <label class="form-label">intensidad Horaria</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
-                            </div>
+
                             <div class="col-12 container">
-                                <button type="submit" class="btn btn-primary">crear</button>
+                                <button type="submit" class="btn btn-primary" (click)="create_user()">Guardar Usuario</button>
                             </div>
                         </div>
                     </form>
