@@ -46,7 +46,7 @@
                 </table>
             </div>
             <div class="col-12 container" style="padding-bottom: 30px;">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" href="#createModal"><i class="fas fa-user-plus"></i></button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" href="#createModal"><i class="fas fa-user-plus"></i>__crear Usuario</button>
             </div>
         </div>
     </div>
@@ -108,18 +108,52 @@
 
     <!-- //editModal -->
     <div class="modal fade" id="editModal" aria-hidden="true" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalToggleLabel">Editar Usuario</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Show a second modal and hide this one with the button below.
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Open second modal</button>
+                    <form>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Telefono</label>
+                                <input type="number" class="form-control" id="exampleInputPassword1">
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Correo Electronico</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Rol</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>selecciona una opcion</option>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Alumno</option>
+                                </select>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label">intensidad Horaria</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="col-12 container">
+                                <button type="submit" class="btn btn-primary">crear usuario</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -128,18 +162,52 @@
 
       <!-- //createModal -->
       <div class="modal fade" id="createModal" aria-hidden="true" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalToggleLabel">Crear Usuario</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Show a second modal and hide this one with the button below.
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Open second modal</button>
+                    <form>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Telefono</label>
+                                <input type="number" class="form-control" id="exampleInputPassword1">
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Correo Electronico</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Rol</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>selecciona una opcion</option>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Alumno</option>
+                                </select>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label">intensidad Horaria</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="col-12 container">
+                                <button type="submit" class="btn btn-primary">crear</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

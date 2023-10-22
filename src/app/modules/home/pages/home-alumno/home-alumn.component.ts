@@ -23,7 +23,7 @@ export class HomeAlumnComponent {
     }
     this.cursosUser = [];
   }
-  public async ngOnInit() {
+  public ngOnInit() {
     this.profile();
   }
 
