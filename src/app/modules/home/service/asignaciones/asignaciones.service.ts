@@ -39,7 +39,7 @@ export class AsignacionesService {
   }
 
   public delete_asignacion(asignacion_id:any):Observable<asignacion>{
-    return this.http.delete<asignacion>(`http://127.0.0.1:8000/api/assignation/${asignacion_id}`);
+    return this.http.delete<asignacion>(`http://127.0.0.1:8000/api/assignation_user/${asignacion_id}`);
   }
 
 
