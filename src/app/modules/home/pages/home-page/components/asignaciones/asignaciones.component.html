@@ -32,8 +32,8 @@
                                 <div class="row ">
                                     <div class="col-4">
 
-                                        <i class="fas fa-edit" type="button" data-bs-toggle="modal"
-                                            href="#editModal"></i>
+                                        <i class="fas fa-edit" type="button" data-bs-toggle="modal" href="#editModal"
+                                            (click)="getAsignacion(asignacion.id)"></i>
                                     </div>
                                     <div class="col-4">
                                         <i class="fas fa-trash-alt" type="button"></i>
@@ -56,7 +56,7 @@
                 <span>Filtrar por:</span>
             </div>
             <div class="col-6">
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select">
                     <option selected>selecciona una opcion</option>
                     <option value="1">Alumno</option>
                     <option value="2">Curso</option>
@@ -108,28 +108,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Alumno</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>selecciona Alumno</option>
-                                <option value="1">Alumno1</option>
-                                <option value="2">Alumno2</option>
-                                <option value="3">Alumno13</option>
-                            </select>
+                    <form onsubmit="return false">
+                        <div class="mb-3" [formGroup]="asignacionValidate" *ngFor="let item of asignacion">
+                            <label class="form-label">Alumno</label>
+                            <input class="form-control" formControlName="user_id" readonly placeholder="{{item.nombre}}"
+                                [(ngModel)]="userId" style="background-color: white;">
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Curso</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>selecciona el Curso</option>
-                                <option value="1">Curso1</option>
-                                <option value="2">Curso2</option>
-                                <option value="3">Curso3</option>
+                        <div class="mb-3" [formGroup]="asignacionValidate">
+                            <label class="form-label">Curso</label>
+
+                            <select class="form-select" formControlName="curso_id" [(ngModel)]="cursoId">
+                                <option selected="true" *ngFor="let item of asignacion">{{item.nombre_curso}}</option>
+                                <option *ngFor="let curso of cursos" value="{{curso.id}}">{{curso.nombre_curso}}
+                                </option>
                             </select>
                         </div>
                         <div class="container">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary" (click)="validate_curso()">actualizar
+                                Asignacion</button>
                         </div>
+                      <!--   <div class="alert alert-primary" role="alert">
+                            el alumo tiene asignados los siguientes cursos:
+                            <ul *ngFor="let item of cursosUser">{{item.nombre_curso}}</ul>
+                        </div> -->
                     </form>
                 </div>
             </div>
@@ -145,27 +146,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Alumno</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>selecciona Alumno</option>
-                                <option value="1">Alumno1</option>
-                                <option value="2">Alumno2</option>
-                                <option value="3">Alumno13</option>
+                    <form onsubmit="return false">
+                        <div class="mb-3" [formGroup]="asignacionValidate">
+                            <label class="form-label">Alumno</label>
+                            <select class="form-select" formControlName="user_id" [(ngModel)]="userId">
+                                <option *ngFor="let item of alumnos" value="{{item.id}}">{{item.nombre}}</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Curso</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>selecciona el Curso</option>
-                                <option value="1">Curso1</option>
-                                <option value="2">Curso2</option>
-                                <option value="3">Curso3</option>
+                        <div class="mb-3" [formGroup]="asignacionValidate">
+                            <label class="form-label">Curso</label>
+                            <select class="form-select" formControlName="curso_id" [(ngModel)]="cursoId">
+                                <option *ngFor="let curso of cursos" value="{{curso.id}}">{{curso.nombre_curso}}
+                                </option>
                             </select>
                         </div>
                         <div class="container">
-                            <button type="submit" class="btn btn-primary">Crear Asignacion</button>
+                            <button type="submit" class="btn btn-primary" (click)="createAsignacion()">Crear
+                                Asignacion</button>
+                        </div>
+                        <div class="alert alert-primary" role="alert">
+                            el alumo tiene asignados los siguientes cursos:
+                            <ul *ngFor="let item of cursosUser">{{item.nombre_curso}}</ul>
                         </div>
                     </form>
                 </div>

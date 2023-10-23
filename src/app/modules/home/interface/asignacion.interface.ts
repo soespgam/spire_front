@@ -3,3 +3,8 @@ export interface asignacion {
     curso_id: number,
     user_id: number,
 }
+
+export interface alumnos {
+    id?: number;
+    nombre: string;
+}

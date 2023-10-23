@@ -33,13 +33,14 @@ export class HomeAlumnComponent {
 
   public profile(): void {
     this.perfil = JSON.parse(localStorage.getItem('user_auth')!)
+    this.get_asignaciones_user(this.perfil.id);
   }
 
   public get_asignaciones_user(user_id: any) {
     try {
       this.asignacionesService.asignacion_usuario(user_id).subscribe({
         next: (res) => {
-          this.cursosUser = res
+          this.cursosUser = res;
         },
         error: (error: any) => {
           console.log(error);
