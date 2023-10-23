@@ -8,6 +8,7 @@ import { UsuarioRoutingModule } from './modules/usuarios/usuario-routing.module'
 import { HomeModule } from './modules/home/home.module';
 import { HomeRoutingModule } from './modules/home/home-routing.module';
 import { CursosComponent } from './modules/home/pages/home-page/components/cursos/cursos.component';
+import { FilterCursoPipe } from './pipes/filter-curso.pipe';
 
 
 
@@ -15,6 +16,7 @@ import { CursosComponent } from './modules/home/pages/home-page/components/curso
   declarations: [
     AppComponent,
     CursosComponent,
+    FilterCursoPipe,
   ],
   imports: [
     BrowserModule,

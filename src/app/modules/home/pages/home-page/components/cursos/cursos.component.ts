@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class CursosComponent {
   public cursos: any;
   public editCurso: any;
-  public modal: any;
+  public modal: any
 
   public cursoValidate: FormGroup = new FormGroup({
     nombre_curso: new FormControl('', [Validators.required]),
@@ -27,8 +27,9 @@ export class CursosComponent {
       nombre_curso: '',
       intensidad_horaria: '',
     };
+
   }
-  public async ngOnInit() {
+  public ngOnInit() {
     this.getCursos();
   }
   //administrtation cursos
@@ -142,5 +143,6 @@ export class CursosComponent {
   public redirecTo(url: string) {
     this.router.navigate([url]);
   }
+ 
 
 }

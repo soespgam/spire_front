@@ -30,9 +30,7 @@
                             <td>
                                 <div class="row ">
                                     <div class="col-4">
-
-                                        <i class="fas fa-edit" type="button" data-bs-toggle="modal"
-                                            href="#editModal" (click)="getCurso(item.id)"></i>
+                                        <i class="fas fa-edit" type="button" data-bs-toggle="modal" href="#editModal" (click)="getCurso(item.id)"></i>
                                     </div>
                                     <div class="col-4">
                                         <i class="fas fa-trash-alt" type="button" (click)="deleteCurso(item.id)"></i>
@@ -49,24 +47,12 @@
             </div>
         </div>
     </div>
-    <div class="col-8 container">
+    <div class="col-12 container">
         <div class="row" style="padding-bottom: 30px;">
-            <div class="col-2">
-                <span>Buscar por:</span>
-            </div>
-            <div class="col-4">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>selecciona una opcion</option>
-                    <option value="1">Nombre</option>
-                    <option value="2">Intensidad</option>
-                </select>
-            </div>
-            <div class="col-6">
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">buscar</button>
+                    <input class="form-control me-2" type="search" placeholder="buscar curso" id="searchInput" onkeydown="filterCursos()">
+                    <button class="btn btn-outline-success" >buscar</button>
                 </form>
-            </div>
         </div>
     </div>
 
@@ -80,11 +66,11 @@
                     <th scope="col">Opciones</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>algo</td>
-                    <td>algo</td>
-                    <td>algo</td>
+            <tbody id="names">
+                <tr *ngFor="let item of cursos">
+                    <td>{{item.id}}</td>
+                    <td>{{item.nombre_curso}}</td>
+                    <td>{{item.intensidad_horaria}}</td>
                     <td>
                         <div class="row ">
                             <div class="col-4">
@@ -114,16 +100,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form >
                         <div class="mb-3" [formGroup]="cursoValidate">
-                            <label for="exampleInputEmail1" class="form-label" >Nombre del curso</label>
-                            <input type="email" class="form-control" formControlName="nombre_curso" placeholder="{{editCurso.nombre_curso}}">
+                            <label for="exampleInputEmail1" class="form-label">Nombre del curso</label>
+                            <input type="email" class="form-control" formControlName="nombre_curso"
+                                placeholder="{{editCurso.nombre_curso}}">
                         </div>
                         <div class="mb-3" [formGroup]="cursoValidate">
-                            <label for="exampleInputPassword1" class="form-label" >intensidad Horaria</label>
-                            <input  class="form-control" formControlName="intensidad_horaria" placeholder="{{editCurso.intensidad_horaria}}">
+                            <label for="exampleInputPassword1" class="form-label">intensidad Horaria</label>
+                            <input class="form-control" formControlName="intensidad_horaria"
+                                placeholder="{{editCurso.intensidad_horaria}}">
                         </div>
-                        <button type="submit" class="btn btn-primary" (click)="updated_curso()">Editar</button>
+                        <button type="submit" class="btn btn-primary" (click)="updated_curso()" data-bs-dismiss="modal">Editar</button>
                     </form>
                 </div>
             </div>
@@ -147,10 +135,10 @@
                         </div>
                         <div class="mb-3" [formGroup]="cursoValidate">
                             <label class="form-label">intensidad Horaria</label>
-                            <input  formControlName="intensidad_horaria" class="form-control">
+                            <input formControlName="intensidad_horaria" class="form-control">
                         </div>
                         <div class="container">
-                            <button type="submit" class="btn btn-primary" (click)="create_curso()">Guardar</button>
+                            <button type="submit" class="btn btn-primary" (click)="create_curso()" data-bs-dismiss="modal">Guardar</button>
                         </div>
                     </form>
 
